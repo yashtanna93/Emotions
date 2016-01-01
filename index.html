@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #results {
+            float: right;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid;
+            background: #ccc;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="See your and other peoples' response to videos">
+    <meta name="author" content="Yash Tanna">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/webcam.js"></script>
+    <script type="text/javascript" src="js/imageUpload.js"></script>
+    <script src="js/emotion.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/youtube.js"></script>
+    <script language="JavaScript">
+
+    </script>
+    <script language="JavaScript">
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row" id="row-frame">
+        <div class="col-md-10 col-lg-offset-1">
+            <div class="embed-responsive embed-responsive-16by9" id="main-frame">
+                <div id="player" style="display:none"></div>
+            </div>
+        </div>
+
+        <div class="col-md-9 col-lg-offset-1">
+            <br/>
+
+            <div class="input-group">
+                <span class="input-group-addon" id="url-label">Youtube URL</span>
+                <input type="text" class="form-control" id="youtube-url" aria-describedby="basic-addon3" value="">
+            </div>
+        </div>
+        <div class="col-md-1">
+            <br/>
+            <button type="button" class="btn btn-primary btn-block" onclick="go()">GO!!</button>
+        </div>
+    </div>
+    <div id="my_camera"></div>
+    <div id="results" style="display:none">Your captured image will appear here...</div>
+</div>
+<script language="JavaScript">
+    Webcam.set({
+        width: 320,
+        height: 240,
+        image_format: 'jpeg',
+        jpeg_quality: 90
+    });
+    Webcam.attach('#my_camera');
+</script>
+</body>
+</html>

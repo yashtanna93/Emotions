@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/c3.min.js"></script>
+    <script src="js/d3.min.js"></script>
+    <link href="css/c3.min.css" rel="stylesheet" type="text/css">
+    <script src="js/emotion.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+<div id="chart"></div>
+<script type="text/javascript">
+    images = localStorage.getItem("image");
+    for(i=0; i<images; i++) {
+        name = (i+1) * 3;
+        checkEmotions("test", name, i);
+    }
+    graphdata = strippedEmotions;
+    console.log(graphdata);
+    anger = ['ANGER'];
+    contempt = ['CONTEMPT'];
+    disgust = ['DISGUST'];
+    fear = ['FEAR'];
+    happiness = ['HAPPINESS'];
+    neutral = ['NEUTRAL'];
+    saddness = ['SADDNESS'];
+    surprise = ['SURPRISE'];
+    timeanger = ['x1'];
+    timecontempt = ['x2'];
+    timedisgust = ['x3'];
+    timefear = ['x4'];
+    timehappiness = ['x5'];
+    timeneutral = ['x6'];
+    timesaddness = ['x7'];
+    timesurprise = ['x8'];
+    for (i = 0; i < graphdata.length; i++) {
+        timeanger.push(graphdata[i].time);
+        timecontempt.push(graphdata[i].time);
+        timedisgust.push(graphdata[i].time);
+        timefear.push(graphdata[i].time);
+        timehappiness.push(graphdata[i].time);
+        timeneutral.push(graphdata[i].time);
+        timesaddness.push(graphdata[i].time);
+        timesurprise.push(graphdata[i].time);
+        if (typeof (graphdata[i].anger) != "number") {
+            graphdata[i].anger = 0;
+        }
+        anger.push(graphdata[i].anger);
+        if (typeof (graphdata[i].contempt) != "number") {
+            graphdata[i].contempt = 0;
+        }
+        contempt.push(graphdata[i].contempt);
+        if (typeof (graphdata[i].disgust) != "number") {
+            graphdata[i].disgust = 0;
+        }
+        disgust.push(graphdata[i].disgust);
+        if (typeof (graphdata[i].fear) != "number") {
+            graphdata[i].fear = 0;
+        }
+        fear.push(graphdata[i].fear);
+        if (typeof (graphdata[i].happinees) != "number") {
+            graphdata[i].happinees = 0;
+        }
+        happiness.push(graphdata[i].happinees);
+        if (typeof (graphdata[i].neutral) != "number") {
+            graphdata[i].neutral = 0;
+        }
+        neutral.push(graphdata[i].neutral);
+        if (typeof (graphdata[i].saddness) != "number") {
+            graphdata[i].saddness = 0;
+        }
+        saddness.push(graphdata[i].saddness);
+        if (typeof (graphdata[i].surprise) != "number") {
+            graphdata[i].surprise = 0;
+        }
+        surprise.push(graphdata[i].surprise);
+    }
+    var chart = c3.generate({
+        data: {
+            xs: {
+                'ANGER': 'x1',
+                'CONTEMPT': 'x2',
+                'DISGUST': 'x3',
+                'FEAR': 'x4',
+                'HAPPINESS': 'x5',
+                'NEUTRAL': 'x6',
+                'SADDNESS': 'x7',
+                'SURPRISE': 'x8',
+
+            },
+            columns: [
+                timeanger,
+                timecontempt,
+                timedisgust,
+                timefear,
+                timehappiness,
+                timeneutral,
+                timesaddness,
+                timesurprise,
+                anger,
+                contempt,
+                disgust,
+                timefear,
+                happiness,
+                neutral,
+                saddness,
+                surprise
+            ]
+        }
+    });
+    var xvalue = [];
+</script>
+</body>
+</html>
