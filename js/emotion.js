@@ -12,7 +12,7 @@ function checkEmotions(youtubeID, imagenameobj, arrayindex) {
         beforeSend: function (xhrObj) {
             // Request headers
             xhrObj.setRequestHeader("Content-Type", "application/json");
-            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "658ac0b020d24b5d8e99b3eabdc1219e");
+            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "Your API_KEY");
         },
         async: false,
         type: "POST",
